@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Filters</h1>
+    <h4>{{ test | toUppercase }}</h4>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "app",
-  components: {
-    HelloWorld
+  components: {},
+  data: function() {
+    return {
+      test: "Hello There"
+    };
+  },
+  filters: {
+    toUppercase(value) {
+      return value.toUpperCase();
+    }
   }
 };
 </script>

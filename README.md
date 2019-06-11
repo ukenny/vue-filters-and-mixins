@@ -1,5 +1,9 @@
 # vue-filters
 
+## Filters
+
+Filters _modify_ (not change) data
+
 ## Project setup
 ```
 npm install
