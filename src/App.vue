@@ -1,24 +1,40 @@
 <template>
   <div id="app">
     <h1>Filters</h1>
-    <h4>{{ test | toUppercase }}</h4>
+    <!-- <h4>{{ test | toUppercase }}</h4> -->
+    <h4>{{ test2 | toLowercase }}</h4>
+    <hr />
+    <button @click="addNewFruit(fruits, $event)">Add New Fruit</button>
+    <input v-model="filterText">
+    <ul>
+      <li v-for="fruit in filterFruits" v-bind:key="fruit">{{ fruit }}</li>
+    </ul>
+    <app-list></app-list>
   </div>
 </template>
 
 <script>
+import List from "./components/List.vue";
+import { fruitMixin } from "./fruitMixin.js";
+
 export default {
   name: "app",
-  components: {},
+  components: {
+    appList: List
+  },
+  methods: {
+    addNewFruit: function(fruits, event) {
+      fruits.push("Berries");
+
+    }
+  },
   data: function() {
     return {
-      test: "Hello There"
+      test: "Hello There",
+      test2: "I SHOULD BE Lowercase"
     };
   },
-  filters: {
-    toUppercase(value) {
-      return value.toUpperCase();
-    }
-  }
+  mixins: [fruitMixin]
 };
 </script>
 
